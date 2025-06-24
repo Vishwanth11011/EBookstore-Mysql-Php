@@ -27,7 +27,6 @@
 	$dataPoints = array(
 		array("label"=> "Users", "y"=> $users_result),
 		array("label"=> "Books", "y"=> $books_result),
-		array("label"=> "Contact", "y"=> $contact_result),
 		array("label"=> "Order", "y"=> $order_result),
 		array("label"=> "Support", "y"=> $support_result),
 		array("label"=> "Category", "y"=> $category_result),

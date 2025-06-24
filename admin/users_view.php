@@ -3,7 +3,7 @@
     include("../includes/connection.php");
     include("functions/process_users_view_data.php");
 
-    $search = $_GET['search'];
+    $search = $_GET['search'] ?? '';
     $users_list = "SELECT * FROM `register_table` WHERE register_full_name LIKE '%$search%'";
     $users_list_result = mysqli_query($connection_database, $users_list);
 ?>
@@ -25,7 +25,6 @@
                         <th scope="col">User Name</th>
                         <th scope="col">Contact No</th>
                         <th scope="col">E-Mail</th>
-                        <th scope="col">Edit</th>
                         <th scope="col">Delete</th>
                     </tr>
                 </thead>

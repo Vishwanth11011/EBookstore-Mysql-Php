@@ -3,7 +3,7 @@
     include("../includes/connection.php");
 	include("functions/process_order_view_data.php");
 
-	$search = $_GET['search'];
+	$search = $_GET['search'] ?? '';
 	$order_list_query = "SELECT * FROM `order_table` WHERE `order_name` LIKE '%$search%'";
 	$order_list_result = mysqli_query($connection_database, $order_list_query);
 ?>

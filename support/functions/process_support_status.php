@@ -1,9 +1,8 @@
 <?php
     include("../../includes/connection.php");
 
-    $user_id = $_GET['id']; // Change this to the actual user ID
-    $new_status = $_GET['status']; // Change this to the desired new status    
-
+    $user_id = $_GET['id']; 
+    $new_status = $_GET['status']; 
     if($new_status === 'Open') 
     {
         $new_status = 'Closed';

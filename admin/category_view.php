@@ -3,7 +3,7 @@
     include("../includes/connection.php");
     include("functions/process_category_view_data.php");
 
-    $search = $_GET['search'];
+    $search = $_GET['search'] ?? '';
     $category_query = "SELECT * FROM `category_table` WHERE `category_name` LIKE '%$search%'";
     $category_result = mysqli_query($connection_database, $category_query);
     $count = 1;

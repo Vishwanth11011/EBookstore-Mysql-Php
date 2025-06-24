@@ -15,25 +15,21 @@
 
                     <div class="modal-body p-5 pt-0">
                         <form action="functions/user_support_process.php" method="POST">
-                            <!-- Full Name Input -->
-                            <div class="form-floating mb-3">
+                            <!-- <div class="form-floating mb-3">
                                 <input name="user_email" type="email" class="form-control rounded-3" placeholder="E-mail">
                                 <label>Email</label>
-                            </div>
+                            </div> -->
 
-                            <!-- Email Input -->
                             <div class="form-floating mb-3">
                                 <input name="subject" type="text" class="form-control rounded-3" placeholder="Subject">
                                 <label>Subject</label>
                             </div>
 
-                            <!-- Message Textarea -->
                             <div class="form-floating mb-3">
                                 <textarea name="message" type="text" class="form-control rounded-3" placeholder="Message"></textarea>
                                 <label>Message</label>
                             </div>
 
-                            <!-- Submit Button -->
                             <button class="w-100 mb-2 btn btn-sm rounded-3 btn-outline-info" type="submit">Submit</button>
 
                         </form>

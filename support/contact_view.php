@@ -3,7 +3,7 @@
     include("../includes/connection.php");
     include("functions/process_contact_view.php");
 
-    $search = $_GET['search'];
+    $search = $_GET['search'] ?? '';
     $contact_list = "SELECT * FROM `contact_table` WHERE `contact_full_name` LIKE '%$search%'";
     $contact_list_row = mysqli_query($connection_database, $contact_list);
 ?>

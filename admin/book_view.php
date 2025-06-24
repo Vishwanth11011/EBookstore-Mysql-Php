@@ -3,7 +3,7 @@
     include("../includes/connection.php");
     include("functions/process_book_view.php");
 
-    $search = $_GET['search'];
+    $search = $_GET['search'] ?? '';
     $book_list_query = "SELECT * FROM `book_table` WHERE `book_name` LIKE '%$search%'";
     $book_list_result = mysqli_query($connection_database, $book_list_query);
 ?>
@@ -23,11 +23,12 @@
                     <tr>
                         <th class="col">ID</th>
                         <th class="col">Book Name</th>
+                        <th class="col">Author</th>
                         <th class="col">Category</th>
                         <th class="col">Price</th>
                         <th class="col">Image</th>
                         <th class="col">Date</th>
-                        <th class="col">Delate</th>
+                        <th class="col">Delete</th>
                         <th class="col">Edit</th>
                     </tr>
                 </thead>

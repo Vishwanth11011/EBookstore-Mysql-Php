@@ -17,7 +17,7 @@
                     <td>' . $order_row['order_total_price'] . '</td>
                     <td>' . $order_row['order_list_books'] . '</td>
 					<td align="center"><a class="btn btn-info btn-sm" href="order_edit.php?id=' . $order_row['order_id'] . '">Edit</a></td>
-					<td align="center"><a class="btn btn-danger btn-sm" href="functions/process_order_del.php?id=' . $order_row['order_id'] . '">Delate</a></td>
+					<td align="center"><a class="btn btn-danger btn-sm" href="functions/process_order_del.php?id=' . $order_row['order_id'] . '">Delete</a></td>
 				</tr>
             ';	
 		}

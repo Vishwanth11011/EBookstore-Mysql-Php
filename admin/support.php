@@ -3,7 +3,7 @@
     include("../includes/connection.php");
     include("functions/process_support_display.php");
 
-    $search = $_GET['search'];
+    $search = $_GET['search'] ?? '';
     $support_search_query = "SELECT * FROM `user_support_table` WHERE `user_support_subject` LIKE '%$search%'";
     $support_search_result = mysqli_query($connection_database, $support_search_query);
 ?>
@@ -24,7 +24,6 @@
                     <tr>
                         <th class="col">ID</th>
                         <th class="col">User actual ID</th>
-                        <th class="col">Email</th>
                         <th class="col">Subject</th>
                         <th class="col">Message</th>
                         <th class="col">Status</th>

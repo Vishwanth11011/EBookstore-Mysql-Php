@@ -19,6 +19,11 @@
                             <input name="book_name" class="form-control" type="text" placeholder="Book name" value="<?php echo $books_row['book_name']; ?>">
                         </div>
 
+                        <div class="mb-3">
+                            <label class="small mb-1">Author</label>
+                            <input name="book_author" class="form-control" type="text" placeholder="Author of the Book">
+                        </div>
+
                         <div class="form-group mb-3">
                             <select name="book_category" class="form-control">
                                 <option value="<?php echo $books_row['book_category']; ?>" selected disable hidden><?php echo $books_row['book_category']; ?></option>

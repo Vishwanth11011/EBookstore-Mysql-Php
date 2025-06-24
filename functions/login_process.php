@@ -7,7 +7,6 @@
 
         $_SESSION['error'] = array();
 
-        // Check if username or password is empty
         if (empty($username)) 
         {
             $_SESSION['error'][] = "Please enter a user ID or Email";
@@ -26,7 +25,6 @@
             {
                 include("../includes/connection.php");
 
-                // Query the database to check for valid credentials
                 $query_username = "SELECT * FROM `register_table` WHERE `register_user_name` = '$username' OR `register_email` = '$username'";
                 $query_password = "SELECT * FROM `register_table` WHERE `register_password` = '$password'";
 
@@ -40,7 +38,6 @@
                 {
                     if(!empty($value_of_password)) 
                     {
-                        // User information
                         $_SESSION['client']['username'] = $value_of_username['register_user_name'];
                         $_SESSION['client']['id'] = $value_of_username['register_id'];
                         $_SESSION['client']['status'] = true;

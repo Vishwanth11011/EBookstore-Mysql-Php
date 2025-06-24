@@ -16,10 +16,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Support Panel</title>
 
-        <!-- Bootstrap core CSS -->
         <link href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-        <!-- Favicons -->
         <link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon.ico">
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -42,7 +40,7 @@
           			<li class="nav-item">
             			<a class="nav-link" href="../support/order_view.php">Orders</a>
 						<a class="nav-link" href="../support/support.php">Support</a>
-						<a class="nav-link" href="../support/contact_view.php">Contact</a>
+						<!-- <a class="nav-link" href="../support/contact_view.php">Contact</a> -->
           			</li>
 					<li class="nav-item">
 						<a class="nav-link" href="../support/logout.php">Logout</a>

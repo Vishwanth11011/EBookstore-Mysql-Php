@@ -8,7 +8,7 @@
                 <tr>
                     <td> " . $support_row['user_support_id'] . " </td>
                     <td> " . $support_row['user_support_actual_id'] . " </td>
-                    <td> " . $support_row['user_support_email'] . " </td>
+                    
                     <td> " . $support_row['user_support_subject'] . " </td>
                     <td> " . $support_row['user_support_message'] . " </td>
                     <td> " . $support_row['user_support_created_at'] . " </td>
@@ -18,3 +18,5 @@
         }
     }
 ?>
+
+<!-- <td> " . $support_row['user_support_email'] . " </td> -->

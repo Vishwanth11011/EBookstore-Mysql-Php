@@ -15,6 +15,11 @@
                                 <input name="book_name" class="form-control" type="text" placeholder="Name of the Book">
                             </div>
 
+                            <div class="mb-3">
+                                <label class="small mb-1">Author</label>
+                                <input name="book_author" class="form-control" type="text" placeholder="Author of the Book">
+                            </div>
+
                             <div class="form-group mb-3">
                                 <select name="book_category" class="form-control">
                                     <?php

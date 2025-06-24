@@ -21,9 +21,6 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `admin_table`
---
 
 CREATE TABLE IF NOT EXISTS `admin_table` (
   	`admin_id` INT(10) NOT NULL AUTO_INCREMENT,
@@ -31,10 +28,6 @@ CREATE TABLE IF NOT EXISTS `admin_table` (
   	`admin_password` VARCHAR(30) NOT NULL,
   	PRIMARY KEY (`admin_id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 AUTO_INCREMENT = 1;
-
---
--- Dumping data for table `admin_table`
---
 
 INSERT INTO `admin_table` (`admin_user_name`, `admin_password`) VALUES 
 ('admin', 'admin'), 
@@ -49,23 +42,16 @@ CREATE TABLE IF NOT EXISTS `support_team_table` (
 	PRIMARY KEY (`support_id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 AUTO_INCREMENT = 1;
 
--- 
--- Dumping data for table `support_team_table`
---
-
 INSERT INTO `support_team_table` (`support_user_name`, `support_password`) VALUES
 ('support', 'support'),
 ('support1', 'support2');
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `book_table`
---
-
 CREATE TABLE IF NOT EXISTS `book_table` (
   	`book_id` INT(10) NOT NULL AUTO_INCREMENT,
   	`book_name` VARCHAR(50) NOT NULL,
+	`book_author` VARCHAR(100) NOT NULL,
   	`book_category` VARCHAR(50) NOT NULL,
   	`book_description` LONGTEXT NOT NULL,
   	`book_price` INT(4) NOT NULL,
@@ -74,9 +60,6 @@ CREATE TABLE IF NOT EXISTS `book_table` (
   	PRIMARY KEY (`book_id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 AUTO_INCREMENT = 1;
 
---
--- Dumping data for table `book_table`
---
 
 INSERT INTO `book_table` (`book_name`, `book_category`, `book_description`, `book_price`, `book_img`) VALUES
 ('Brave New World', 'Suspence', "Aldous Huxley's profoundly important classic of world literature, Brave New World is a searching vision of an unequal, technologically-advanced future where humans are genetically bred, socially indoctrinated, and pharmaceutically anesthetized to passively uphold an authoritarian ruling order–all at the cost of our freedom, full humanity, and perhaps also our souls. “A genius [who] who spent his life decrying the onward march of the Machine” (The New Yorker), Huxley was a man of incomparable talents: equally an artist, a spiritual seeker, and one of history’s keenest observers of human nature and civilization. Brave New World, his masterpiece, has enthralled and terrified millions of readers, and retains its urgent relevance to this day as both a warning to be heeded as we head into tomorrow and as thought-provoking, satisfying work of literature. Written in the shadow of the rise of fascism during the 1930s, Brave New World likewise speaks to a 21st-century world dominated by mass-entertainment, technology, medicine and pharmaceuticals, the arts of persuasion, and the hidden influence of elites.", 2500, 'book_img/81zE42gT3xL._SL1500_.jpg'),
@@ -97,9 +80,14 @@ INSERT INTO `book_table` (`book_name`, `book_category`, `book_description`, `boo
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `category_table`
---
+CREATE TABLE IF NOT EXISTS `book_ratings` (
+    `rating_id` INT AUTO_INCREMENT PRIMARY KEY,
+    `book_id` INT NOT NULL,
+    `user_id` INT NOT NULL,
+    `rating` INT NOT NULL CHECK (rating BETWEEN 1 AND 5),
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (`book_id`) REFERENCES `book_table`(`book_id`) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS `category_table` (
   	`category_id` INT(10) NOT NULL AUTO_INCREMENT,
@@ -107,9 +95,6 @@ CREATE TABLE IF NOT EXISTS `category_table` (
   	PRIMARY KEY (`category_id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 AUTO_INCREMENT = 1;
 
---
--- Dumping data for table `category_table`
---
 
 INSERT INTO `category_table` (`category_name`) VALUES
 ('Suspence'),
@@ -124,9 +109,6 @@ INSERT INTO `category_table` (`category_name`) VALUES
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `contact_table`
---
 
 CREATE TABLE IF NOT EXISTS `contact_table` (
   	`contact_id` INT(10) NOT NULL AUTO_INCREMENT,
@@ -139,20 +121,8 @@ CREATE TABLE IF NOT EXISTS `contact_table` (
   	PRIMARY KEY (`contact_id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 AUTO_INCREMENT = 1;
 
---
--- Dumping data for table `contact_table`
---
-
-INSERT INTO `contact_table` (`contact_full_name`, `contact_mobile_number`, `contact_email`, `contact_message`, `contact_time`) VALUES
-('Alan Batr',    77470000000, 'alanbatr@gmail.com',    'Awesome Books.',         '1554092678'),
-('Mergen Altai', 77470000000, 'mergenaltai@gmail.com', 'Best Books',             '1554201509'),
-('Saq Kipchak',  77470000000, 'saqkipchak@gmail.com',  'Looking For New Books',  '1554219813');
 
 -- --------------------------------------------------------
-
---
--- Table structure for table `order_table`
---
 
 CREATE TABLE IF NOT EXISTS `order_table` (
   	`order_id` INT(10) NOT NULL AUTO_INCREMENT,
@@ -168,19 +138,10 @@ CREATE TABLE IF NOT EXISTS `order_table` (
   	PRIMARY KEY (`order_id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 AUTO_INCREMENT = 1;
 
---
--- Dumping data for table `order_table`
---
 
-INSERT INTO `order_table` (`order_name`, `order_address`, `order_pincode`, `order_city`, `order_state`, `order_mobile`, `order_register_id`, `order_total_price`, `order_list_books`) VALUES
-('Ulan Batr', 'St. Astana 51', 000000, 'Akmola', 'Astana', 77470000000, 1, 500000, 'book_id-amout: 15-12, book_id-amout: 16-10'),
-('Mete Khan', 'St. Astana 21', 000000, 'Akmola', 'Astana', 77470000000, 1, 540000, 'book_id-amout: 15-12, book_id-amout: 16-10');
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `register_table`
---
 
 CREATE TABLE IF NOT EXISTS `register_table` (
   	`register_id` INT(10) NOT NULL AUTO_INCREMENT,
@@ -196,20 +157,10 @@ CREATE TABLE IF NOT EXISTS `register_table` (
   	PRIMARY KEY (`register_id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 AUTO_INCREMENT = 1;
 
---
--- Dumping data for table `register_table`
---
 
-INSERT INTO `register_table` (`register_full_name`, `register_user_name`, `register_password`, `register_contact_number`, `register_email`, `register_question`, `register_answer`) VALUES
-('Asl Khan',    'Aslkhan', 'asl123',      77470000000, 'aslturkkhan77@gmail.com', 'Which is your Favourite Movie ?', 'redemption'),
-('Tatar Batr',  'Tatar',   'tatar12345',  77470000000, 'tatarbatr@gmail.com',     'Which is your Favourite Movie ?', '123'),
-('Xasak Ata',   'Ata',     'ataxasak000', 77470000000, 'xasakata@gmail.com',      'Which is your Favourite Movie ?', 'prometheus');
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `user_support_table`
---
 
 CREATE TABLE IF NOT EXISTS `user_support_table` (
     `user_support_id` INT(10) NOT NULL AUTO_INCREMENT,
@@ -222,9 +173,6 @@ CREATE TABLE IF NOT EXISTS `user_support_table` (
     PRIMARY KEY (`user_support_id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 AUTO_INCREMENT = 1;
 
---
--- Dumping data for table `user_support_table`
--- 
 
 INSERT INTO `user_support_table` (`user_support_email`, `user_support_subject`, `user_support_message`) VALUES
 ('turkkhan@gmail.com', 'User error',          'Help with with error login system'),

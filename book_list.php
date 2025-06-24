@@ -22,7 +22,15 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <small class="text-body-secondary"><?php echo $row['book_name']; ?></small>
-                                            <small class="text-body-secondary">₸ <?php echo $row['book_price']; ?></small>
+                                            <small class="text-body-secondary"> ₹ <?php echo $row['book_price']; ?></small>
+                                        </div>
+                                        <div class="mt-2">
+                                            <small class="text-warning">
+                                                <?php
+                                                    $avg = round($row['avg_rating'], 1);
+                                                    echo "⭐ $avg  (" . $row['rating_count'] . " ratings)";
+                                                ?>
+                                            </small>
                                         </div>
                                     </div>
                                 </div>
